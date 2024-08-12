@@ -3,6 +3,7 @@ const nextConfig = {
 	experimental: {
 		appDir: true,
 	},
+	staticPageGenerationTimeout: 1000,
 	images: {
 		domains: [process.env.PRODUCT_IMAGES_DOMAIN ?? '127.0.0.1',
 			'res.cloudinary.com',],
