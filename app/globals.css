@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+.slick-arrow:before {
+	color: red;
+}
+.slick-slide > div {
+	@apply mx-4 sm:mx-8;
+}
+
+html {
+	font-size: 0.8rem;
+}
+
+@media (min-width: 1600px) {
+	html {
+		font-size: 1rem;
+	}
+}
+
+/* override tailwind mui style conflicts */
+button[class*='MuiButton-contained'] {
+	background-color: #3482f6 !important;
+}
+button[class*='MuiButton-contained']:hover {
+	background-color: #1565c0 !important;
+}
