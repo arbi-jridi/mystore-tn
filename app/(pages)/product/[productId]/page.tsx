@@ -26,7 +26,7 @@ export default async function Product({ params }: Props) {
 	const dehydratedState = await preFetch(productId);
 
 	return (
-		<div className='flex flex-col gap-12 px-8 py-5 muiMd:flex-row xl:px-12'>
+		<div className='flex flex-col gap-12 px-8 pt-20 pb-5 muiMd:flex-row xl:px-12'>
 			<Hydrate state={dehydratedState}>
 				<ProductView productId={productId} />
 			</Hydrate>
