@@ -47,8 +47,8 @@ const ProductView = ({ productId }: { productId: string }) => {
 				}}
 			/>
 			{/* right */}
-			<div className='flex flex-1 flex-col gap-5'>
-				<div  className='flex justify-between py-5'>
+			<div className='flex flex-1 flex-col gap-3'>
+				<div  className='flex justify-between py-10'>
 				<h1 className='text-3xl font-bold'>{product.data.attributes?.title}</h1>
 				<div className='mt-[10px] flex flex-col gap-3 text-sm text-gray-500'>
 					{product.data.attributes?.Remise && (
