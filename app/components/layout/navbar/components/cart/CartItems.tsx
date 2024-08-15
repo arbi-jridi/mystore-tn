@@ -229,7 +229,7 @@ const CartItems = ({
 							'Content-Type': 'application/json',
 						},
 						body: JSON.stringify({
-							to: 'arbi.jridi@gmail.com',
+							to: process.env.EMAIL_RECEIVER,
 					        subject: 'Nouvelle Commande !',
 					        message: `Detail de la Commande: ${JSON.stringify(lineItems)}`,
 					        from_name: user?.name || 'Unknown User',
