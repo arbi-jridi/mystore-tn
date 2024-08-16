@@ -105,7 +105,7 @@ const CartItems = ({
 
 			console.log(totalPrice);
 
-			lineItems.push({ id: 'Total', image: '', Article: '-', Marque: '-', quantity: '-', taille: '-', couleur: '-', prix: '-', total: totalPrice.toString() });
+			lineItems.push({ id: '-', image: '', Article: 'Total', Marque: '-', quantity: '-', taille: '-', couleur: '-', prix: '-', total: totalPrice.toString() });
 
 			const tableRows = lineItems.map(item => `
 				<tr>
