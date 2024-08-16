@@ -85,11 +85,11 @@ const CartItems = ({
 
 			// Prepare email data
 			const lineItems = products.map(item => ({
-				id:item.id,
+				id:item.id.toString(),
 				image:item.attributes.img.data.attributes.url,
 				Article: item.attributes.title,
 				Marque: item.attributes.marque,
-				quantity: item.quantity,
+				quantity: item.quantity.toString(),
 				taille: localStorage.getItem(`selectedTaille_${item.id}`),
 				couleur: localStorage.getItem(`selectedColor_${item.id}`),
 				prix: item.attributes.Remise ? (item.attributes.price - (item.attributes.price * item.attributes.Remise / 100)).toFixed(0) : item.attributes.price,
@@ -105,7 +105,7 @@ const CartItems = ({
 
 			console.log(totalPrice);
 
-			lineItems.push({ id: 1, image: 'Total', Article: 'Prix Total', Marque: 'Prix Total', quantity: 1, taille: 'Prix Total', couleur: 'Prix Total', prix: totalPrice.toString(), total: totalPrice.toString() });
+			lineItems.push({ id: '-', image: 'Total', Article: '-', Marque: '-', quantity: '-', taille: '-', couleur: '-', prix: '-', total: totalPrice.toString() });
 
 			const tableRows = lineItems.map(item => `
 				<tr>
@@ -214,9 +214,10 @@ const CartItems = ({
 
 			const orderData = {
 				user: user?.name as string, // Assuming user object has an id
-				//phone:JSON.parse(localStorage.getItem('data') || '{}').phone,
+				phone:JSON.parse(localStorage.getItem('data') || '{}').phone,
+				addresse:JSON.parse(localStorage.getItem('data') || '{}').addresse,
 				items: lineItems,
-				//totalPrice: totalPrice,
+				totalPrice: totalPrice,
 			};
 			console.log("Order Data:", orderData); // Log the order data
 
@@ -229,7 +230,7 @@ const CartItems = ({
 							'Content-Type': 'application/json',
 						},
 						body: JSON.stringify({
-							to: process.env.EMAIL_RECEIVER,
+							to: process.env.EMAIL_RECEIVER || 'arbi.jridi@gmail.com' ,
 					        subject: 'Nouvelle Commande !',
 					        message: `Detail de la Commande: ${JSON.stringify(lineItems)}`,
 					        from_name: user?.name || 'Unknown User',
