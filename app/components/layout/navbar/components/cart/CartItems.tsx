@@ -105,19 +105,19 @@ const CartItems = ({
 
 			console.log(totalPrice);
 
-			lineItems.push({ id: '-', image: 'Total', Article: '-', Marque: '-', quantity: '-', taille: '-', couleur: '-', prix: '-', total: totalPrice.toString() });
+			lineItems.push({ id: 'Total', image: '', Article: '-', Marque: '-', quantity: '-', taille: '-', couleur: '-', prix: '-', total: totalPrice.toString() });
 
 			const tableRows = lineItems.map(item => `
 				<tr>
                     <td><img src='${item.image}' alt='${item.Article}' style='width:50px;'/></td>
 					<td>${item.Article}</td>
-					<td>${item.Marque}</td>
 					<td>${item.id}</td>
-					<td>${item.prix} TND</td>
-					<td>${item.quantity}</td>
+					<td>${item.Marque}</td>
 					<td>${item.taille}</td>
 					<td>${item.couleur}</td>
-					<td>${item.total} TND</td>
+					<td>${item.prix}</td>
+					<td>${item.quantity}</td>
+					<td>${item.total}TND</td>
 				</tr>
 			`).join('');
 
@@ -138,12 +138,12 @@ const CartItems = ({
 					   padding: 10px 0;
 					   background-color: #f4f4f4;
 					   /* background-color: #fff; */
-					   border:  thin solid #d4d4d4;
+					   border:  1px solid #d4d4d4;
 					}
 				 
 					table td{
 					   padding: 10px;
-					   border:  thin solid #d4d4d4;
+					   border:  1px solid #d4d4d4;
 					   width: 18%;
 					   text-align: center;
 					   background-color: #fff;
@@ -159,12 +159,12 @@ const CartItems = ({
 							<tr>
 								<th>Image</th>
 								<th>Article</th>
+								<th>ID</th>
 								<th>Marque</th>
-								<th>Product ID</th>
-								<th>Price</th>
-								<th>Quantity</th>
 								<th>Taille</th>
 								<th>Couleur</th>
+								<th>Prix</th>
+								<th>Quantity</th>
 								<th>Total</th>
 							</tr>
 						</thead>
